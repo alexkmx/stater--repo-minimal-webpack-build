@@ -87,22 +87,18 @@ module.exports = isObject;
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_superagent__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_superagent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_superagent__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__sayMyName_js__ = __webpack_require__(8);
+ // ES6
 
-
-var _superagent = __webpack_require__(2);
-
-var _superagent2 = _interopRequireDefault(_superagent);
-
-var _sayMyName = __webpack_require__(8);
-
-var _sayMyName2 = _interopRequireDefault(_sayMyName);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-console.log((0, _sayMyName2.default)('Killer')); // ES6
+// import darClick from './click.js';
+// console.log( printInConsole('Killer') )
+__WEBPACK_IMPORTED_MODULE_0_superagent___default.a.get('https://randomuser.me/api/?results=50').then(__WEBPACK_IMPORTED_MODULE_1__sayMyName_js__["a" /* default */]);
 
 /***/ }),
 /* 2 */
@@ -2081,30 +2077,32 @@ module.exports = function shouldRetry(err, res) {
 
 /***/ }),
 /* 8 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+function imprime(data) {
 
-// const sayMyName = (name) => {
-//   return 'You are ' + name;
-// }
-//
-//
-// export default sayMyName;
-// export default (name) => {
-//   return 'Hell yeah!'
-// }
+  document.querySelector('#app-container button').addEventListener('click', function () {
+    console.log('hiciste click');
+    const results = data.body.results;
+    console.log(results);
+    let resultsTable = document.querySelector('.users-list');
+    resultsTable.innerHTML = '';
+    results.forEach(function (obj) {
 
-// export default name => 'Hell yeah! ' + name;
+      resultsTable.innerHTML += `
 
-exports.default = function (name) {
-  return "Hell yeah! " + name;
-};
+      <article>
+      <span>${obj.nat}</span>
+      <h6>${obj.email}</h6>
+    </article>
+    `;
+    });
+  });
+}
+/* harmony default export */ __webpack_exports__["a"] = (imprime);
 
 /***/ })
 /******/ ]);
